@@ -35,9 +35,6 @@ if __name__ == "__main__":
         # Resets the environment
         state = env.reset()
 
-        # Renders the screen after new environment observation
-        env.render(mode="human")
-
         for episode_step in range(num_episode_steps):
 
             # Selects a new random action or the best past action
@@ -56,8 +53,7 @@ if __name__ == "__main__":
             # Updates the current state
             state = next_state
 
-            # Renders the screen after new environment observation
-            env.render(mode="human")
+            frames.append(env.render(mode='ansi'))
 
             if done:
                 print("Episode %d/%d finished after %d episode steps with total reward = %f."

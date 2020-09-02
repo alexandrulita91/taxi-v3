@@ -35,9 +35,6 @@ if __name__ == "__main__":
         # Resets the environment
         state = env.reset()
 
-        # Renders the screen after new environment observation
-        env.render(mode="human")
-
         # Selects a new random action or the best past action
         if random.uniform(0, 1) < epsilon:
             action = env.action_space.sample()
@@ -61,9 +58,6 @@ if __name__ == "__main__":
             # Updates the current state & action
             state = next_state
             action = next_action
-
-            # Renders the screen after new environment observation
-            env.render(mode="human")
 
             if done:
                 print("Episode %d/%d finished after %d episode steps with total reward = %f."
